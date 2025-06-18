@@ -1,3 +1,4 @@
+HEAD
 # RBAC Chatbot with Document Ingestion
 
 A Role-Based Access Control (RBAC) chatbot system with document ingestion, semantic search, and a modern Streamlit frontend.
@@ -62,3 +63,19 @@ This will start both the FastAPI backend and Streamlit frontend.
 - **Vector Store**: ChromaDB with HuggingFace embeddings
 - **LLM**: Groq API for response generation
 - **RBAC**: Role-based document access control
+=======
+# DS RPC 01: Internal chatbot with role based access control
+
+This is the starter repository for Codebasics's [Resume Project Challenge](https://codebasics.io/challenge/codebasics-gen-ai-data-science-resume-project-challenge) of building a RAG based Internal Chatbot with role based access control. Please fork this repository to get started.
+
+Basic Authentication using FastAPI's `HTTPBasic` has been implemented in `main.py` for learners to get started with.
+
+Visit the challenge page to learn more: [DS RPC-01](https://codebasics.io/challenge/codebasics-gen-ai-data-science-resume-project-challenge)
+![alt text](resources/RPC_01_Thumbnail.jpg)
+### Roles Provided
+ - **engineering**
+ - **finance**
+ - **general**
+ - **hr**
+ - **marketing**
+
