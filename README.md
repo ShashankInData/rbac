@@ -110,6 +110,7 @@ What is the software development lifecycle at FinSolve?
 How are microservices deployed and managed?
 What is the process for automated testing and CI/CD?
 How is security enforced in the engineering workflow?
+
 **Finance**
 What was the company’s revenue growth in 2024?
 Can you summarize the main expense categories for 2024?
@@ -121,6 +122,7 @@ How did cash flow from operations change over the year?
 What were the main drivers of marketing spend?
 What is the operating expenses to revenue ratio?
 What are the quarterly highlights for revenue and net income?
+
 **HR**
 What is the leave balance for a specific employee?
 How many leaves has an employee taken this year?
@@ -132,6 +134,7 @@ How can I find the date of joining for an employee?
 What is the average leave balance across all employees?
 Who manages the HR department?
 How do I contact the HR manager?
+
 **Marketing**
 What were the main marketing campaigns in 2024?
 How much was spent on digital marketing versus event marketing?
