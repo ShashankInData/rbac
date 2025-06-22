@@ -101,7 +101,9 @@ Visit the challenge page to learn more: [DS RPC-01](https://codebasics.io/challe
 
 **Engineering**
 What is the system architecture of FinSolve Technologies?
+
 Which technologies are used in the backend and frontend?
+
 How does the API Gateway handle authentication and rate limiting?
 What is the process for disaster recovery and backups?
 How does the company ensure high availability and fault tolerance?
