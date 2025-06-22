@@ -56,8 +56,18 @@ if 'user_role' not in st.session_state:
 # API configuration
 API_BASE_URL = "http://localhost:8000"
 
+# Add this USERS dictionary near the top of your file (after imports)
+USERS = {
+    "Tony": {"password": "password123", "role": "engineering"},
+    "Bruce": {"password": "securepass", "role": "marketing"},
+    "Sam": {"password": "financepass", "role": "finance"},
+    "Peter": {"password": "pete123", "role": "engineering"},
+    "Sid": {"password": "sidpass123", "role": "marketing"},
+    "Natasha": {"password": "hrpass123", "role": "hr"},
+}
+
 def login(username, password):
-    """Login to the API and get access token"""
+    """Login to the API and get access token and role"""
     try:
         response = requests.post(
             f"{API_BASE_URL}/api/v1/auth/login",
@@ -65,11 +75,11 @@ def login(username, password):
         )
         if response.status_code == 200:
             data = response.json()
-            return data.get("access_token"), "success"
+            return data.get("access_token"), data.get("role"), "success"
         else:
-            return None, f"Login failed: {response.text}"
+            return None, None, f"Login failed: {response.text}"
     except Exception as e:
-        return None, f"Connection error: {str(e)}"
+        return None, None, f"Connection error: {str(e)}"
 
 def send_message(message, token):
     """Send message to the API"""
@@ -111,21 +121,22 @@ def main():
         
         if st.session_state.token is None:
             st.subheader("Login")
-            username = st.text_input("Username", value="Tony")
-            password = st.text_input("Password", type="password", value="password123")
-            
+            username = st.selectbox("Username", list(USERS.keys()))
+            password = st.text_input("Password", type="password", value=USERS[username]["password"])
+            role = USERS[username]["role"]
+            st.info(f"Role: {role}")
+
             if st.button("Login"):
-                token, message = login(username, password)
+                token, api_role, message = login(username, password)
                 if token:
                     st.session_state.token = token
-                    st.session_state.user_role = "engineering"  # Default for Tony
-                    st.session_state.username = username  # Store username in session
+                    st.session_state.user_role = api_role  # Use role from API for consistency
+                    st.session_state.username = username
                     st.success("Login successful!")
                     st.rerun()
                 else:
                     st.error(message)
         else:
-            # Use username from session state
             st.success(f"Logged in as: {st.session_state.get('username', 'User')}")
             st.info(f"Role: {st.session_state.user_role}")
             if st.button("Logout"):

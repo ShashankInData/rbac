@@ -22,11 +22,12 @@ class Settings(BaseSettings):
 
     # ── API Settings ──
     API_V1_STR: str = "/api/v1"
-    PROJECT_NAME: str = "RBAC Chatbot API"
+    PROJECT_NAME: str = "RBAC Chatbot"
+    PROJECT_VERSION: str = "0.1.0"
 
     # ── LLM / Groq Settings ──
     GROQ_API_KEY: Optional[str] = None
-    GROQ_MODEL: str = "llama2-70b-4096"
+    GROQ_MODEL: str = "llama-3.3-70b-versatile"
 
     # ── HuggingFace Settings ──
     HUGGINGFACE_API_KEY: Optional[str] = None

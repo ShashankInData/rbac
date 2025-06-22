@@ -73,4 +73,8 @@ async def login(login_data: UserLogin) -> Token:
     access_token = create_access_token(
         data={"sub": user["username"], "role": user["role"]}
     )
-    return Token(access_token=access_token, token_type="bearer")
+    return Token(
+        access_token=access_token,
+        token_type="bearer",
+        role=user["role"]
+    )
